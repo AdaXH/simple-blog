@@ -1,0 +1,20 @@
+.children-wrap {
+  animation: children 0.4s;
+  transform-origin: center;
+  animation-fill-mode: forwards;
+  display: block;
+}
+@keyframes children {
+  0% {
+    transform: translate3d(0, 100px, 0) scale(0.9);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translate3d(0) scale3d(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0) scale3d(1);
+    opacity: 1;
+  }
+}

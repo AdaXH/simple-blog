@@ -1,0 +1,37 @@
+@import url(../../../../common/styles/global.module.less);
+@import url(../../../../common/styles/animation.module.less);
+@import url(../../../../common/styles/constant.module.less);
+
+.hitokoto {
+  padding: 20px;
+  color: @WHITE_FONT;
+  text-align: center;
+  animation: fadeIn 0.7s;
+  letter-spacing: 2px;
+  .desc {
+    font-size: 20px;
+  }
+  .author {
+    font-size: 13px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-style: italic;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @WHITE_FONT;
+    opacity: 0.8;
+    &::after,
+    &::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.6);
+      margin-right: 20px;
+    }
+    &::after {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import url(../../../../common/styles/constant.module.less);
+.moment-detail {
+  left: 10vw;
+  top: 100px;
+  &-box {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    padding-bottom: 40px;
+    position: relative;
+    &-img {
+      height: 300px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: @HOVER_BG;
+    }
+    &-content {
+      padding: 20px;
+      white-space: pre-wrap;
+      color: rgba(0, 0, 0, 0.85);
+      letter-spacing: 1px;
+    }
+    &-date {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-style: italic;
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: @BG;
+        top: 50%;
+        margin-top: -1px;
+      }
+      &::before {
+        left: -30px;
+      }
+      &::after {
+        right: -30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@BG: #30acf2;
+@BTN_BG: #007fd0;
+@HOVER_BG: #5db4ea;
+.radius() {
+  border-radius: 5px;
+}
+.shadow() {
+  box-shadow: 0px 1px 20px 8px rgba(0, 0, 0, 0.1);
+}
+
+.noScroll() {
+  scrollbar-3dlight-color: transparent;
+  scrollbar-color: transparent;
+  scrollbar-face-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-width: 0;
+  &::-webkit-scrollbar-track {
+    display: none;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+    border-radius: 0;
+    box-shadow: transparent;
+    background-color: transparent;
+  }
+}

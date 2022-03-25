@@ -1,0 +1,73 @@
+@import url(../../common/styles/constant.module.less);
+
+.moment {
+  position: fixed;
+  left: 50%;
+  top: 10px;
+  &-wrap {
+    height: 600px;
+    background-color: @BG;
+    padding: 20px;
+  }
+  &-box {
+    width: 400px;
+    overflow-y: auto;
+    height: 560px;
+    margin-top: 20px;
+    .noScroll();
+    &-item {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 0 10px;
+      &-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #feaa24;
+        margin-right: 10px;
+        &[data-current='true'] {
+          background-color: #18f436;
+        }
+      }
+      &-img {
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        background-color: @HOVER_BG;
+      }
+      &-content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+        margin-left: 15px;
+        &-title {
+          color: white;
+          font-size: 16px;
+        }
+        &-summary {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 12px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &-title {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+  }
+}

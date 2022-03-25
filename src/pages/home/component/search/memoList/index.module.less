@@ -1,0 +1,25 @@
+@import url(../../../../../common/styles/constant.module.less);
+.list {
+  background: rgba(255, 255, 255, 0.69);
+  position: relative;
+  top: -2px;
+  display: flex;
+  flex-direction: column;
+  a {
+    padding: 5px 0 5px 10px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  a:active,
+  a[data-current='true'],
+  a:hover {
+    color: white;
+    // background: rgba(0, 0, 0, 0.5);
+    background-color: @BG;
+  }
+  a:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}

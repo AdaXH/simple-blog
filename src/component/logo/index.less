@@ -1,0 +1,27 @@
+.simple-os-s {
+  display: inline-block;
+  border-radius: 60px;
+  font-weight: bold;
+  width: 36px;
+  text-align: center;
+  position: relative;
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 60px;
+    top: -5px;
+    left: -5px;
+    z-index: 0;
+    // transform: rotate(-45deg);
+  }
+  &::after {
+    top: unset;
+    left: unset;
+    right: -5px;
+    bottom: -5px;
+  }
+}

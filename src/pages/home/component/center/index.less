@@ -1,0 +1,70 @@
+@import url(../../../../common/styles/constant.module.less);
+.center {
+  position: absolute;
+  top: 50px;
+  width: calc(100vw - 450px);
+  max-width: 60%;
+  min-width: 900px;
+  left: calc(((100vw - 450px) / 3.5));
+  &-wrap {
+    height: 70vh;
+    max-height: calc(100% - 50px);
+    background-color: white;
+    display: flex;
+    &-menu {
+      min-width: 300px;
+      background-color: @BG;
+      &-logo {
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        span {
+          margin-left: 10px;
+          color: white;
+          font-size: 25px;
+        }
+        .simple-os-s {
+          font-weight: normal;
+          width: 60px;
+          background-color: white;
+          color: @BG;
+          font-size: 50px;
+          &::before,
+          &::after {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            top: -2px;
+            left: -2px;
+          }
+          &::after {
+            right: -2px;
+            bottom: -2px;
+            top: unset;
+            left: unset;
+          }
+        }
+      }
+      &-item {
+        padding: 10px 35px;
+        color: white;
+        display: flex;
+        span {
+          margin-left: 10px;
+        }
+        i {
+          font-size: 20px;
+        }
+        cursor: pointer;
+        &[data-current='true'] {
+          cursor: not-allowed;
+          background-color: @HOVER_BG;
+        }
+      }
+    }
+    &-view {
+      padding: 50px;
+      flex: 1;
+    }
+  }
+}

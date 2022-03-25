@@ -1,0 +1,43 @@
+@import url(../../common/styles/constant.module.less);
+.drag {
+  position: fixed;
+  user-select: none;
+  border-radius: 5px;
+  z-index: 10;
+  overflow: hidden;
+  transition: transform 0.4s;
+  &-tool {
+    cursor: move;
+    height: 30px;
+    position: relative;
+    background-color: @BTN_BG;
+    &-title {
+      color: white;
+      line-height: 30px;
+      font-size: 15px;
+      text-align: center;
+    }
+    &-op {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      align-items: center;
+      display: flex;
+      div {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+      &-xx {
+        background-color: #ff4238;
+      }
+      &-scale {
+        background-color: #33c747;
+      }
+    }
+  }
+  .shadow();
+}
