@@ -1,0 +1,91 @@
+.home {
+  background-color: #e1e7e7;
+  &-menu {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    top: 10px;
+    color: #78877e;
+    z-index: 10;
+    .menu-logo {
+      margin-right: 380px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #415a56;
+      font-weight: 600;
+    }
+    &-item {
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+  &-wrap {
+    display: flex;
+  }
+  &-bg {
+    width: 500px;
+    .img {
+      height: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+  &-info {
+    background-image: url(https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/simple-blog/bg/a5ef0a43c2444ab4a96fbac79ec65099.jpeg);
+    background-size: 500px 300px;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    flex: 1;
+    position: relative;
+    &-time {
+      position: absolute;
+      left: 50px;
+      bottom: 30px;
+      &-title {
+        font-weight: bolder;
+      }
+    }
+    &-design {
+      writing-mode: vertical-lr;
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+    &-main {
+      padding: 50px;
+      color: #66756c;
+      margin-top: 160px;
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-size: 38px;
+      }
+      .desc {
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      &-number {
+        border-radius: 3px;
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: white;
+        margin-top: 20px;
+        height: 20px;
+        // line-height: 24px;
+        font-size: 14px;
+        i {
+          // font-weight: 600;
+          // font-size: 20px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

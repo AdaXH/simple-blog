@@ -1,3 +1,7 @@
+import showdown from 'showdown';
+
+export const converter = new showdown.Converter();
+
 const SEC = 1000;
 const MINS = 60 * SEC;
 const HOUR = SEC * 60;

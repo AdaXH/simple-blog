@@ -12,10 +12,19 @@ interface DragProp {
   operation?: boolean;
   close?: boolean;
   afterClose?: (...arg: any[]) => any;
+  topBarColor?: string;
 }
 window.dragIndex = 0;
 
-export const Drag: React.FC<DragProp> = ({ children, className, title, operation, afterClose, close }) => {
+export const Drag: React.FC<DragProp> = ({
+  children,
+  className,
+  title,
+  operation,
+  afterClose,
+  close,
+  topBarColor = '#fbfbfb',
+}) => {
   const dragRef = createRef<HTMLDivElement>();
   const [scale, setScale] = useState<number>(operation ? 0.9 : 1);
   let listen: (ev: MouseEvent) => void;
@@ -54,7 +63,7 @@ export const Drag: React.FC<DragProp> = ({ children, className, title, operation
       ref={dragRef}
       style={{ transform: `scale(${scale})`, zIndex: window.dragIndex }}
     >
-      <div className="drag-tool" onMouseDown={(e) => hanldeClick(e)}>
+      <div className="drag-tool" style={{ backgroundColor: topBarColor }} onMouseDown={(e) => hanldeClick(e)}>
         {title && <div className="drag-tool-title">{title}</div>}
         {operation && (
           <div className="drag-tool-op">

@@ -1,0 +1,42 @@
+.common-op {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  &-pre,
+  &-next {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #586472;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #586472;
+    &:hover {
+      //   background-color: #f0f0f0 !important;
+      //   color: #586472;
+      transition: all 0.3s;
+      opacity: 0.3;
+    }
+    &[data-disabled='true'] {
+      cursor: not-allowed;
+      background-color: #949494 !important;
+      i {
+        color: white !important;
+      }
+      //   &:hover {
+      //     background-color: #586472;
+      //     color: white;
+      //     transition: all 0.3s;
+      //   }
+    }
+  }
+  &-next {
+    transform-origin: center;
+    transform: rotate(180deg);
+  }
+}

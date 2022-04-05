@@ -1,16 +1,20 @@
 @import url(../../common/styles/constant.module.less);
 .drag {
   position: fixed;
-  user-select: none;
-  border-radius: 5px;
+  border-radius: 20px;
   z-index: 10;
   overflow: hidden;
   transition: transform 0.4s;
+  &-content {
+    // padding-top: 0;
+    background-color: white;
+  }
   &-tool {
     cursor: move;
-    height: 30px;
+    height: 50px;
     position: relative;
     background-color: @BTN_BG;
+    border-bottom: 1px solid #f4f4f4;
     &-title {
       color: white;
       line-height: 30px;
@@ -28,14 +32,14 @@
         width: 20px;
         height: 20px;
         cursor: pointer;
-        margin-right: 10px;
+        margin-right: 25px;
         border-radius: 5px;
       }
       &-xx {
-        background-color: #ff4238;
+        background-color: #d16a4e;
       }
       &-scale {
-        background-color: #33c747;
+        background-color: #b9be60;
       }
     }
   }

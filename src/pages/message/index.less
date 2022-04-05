@@ -1,0 +1,102 @@
+@import url(../../common/styles/constant.module.less);
+.message {
+  background-color: #dae2e4;
+  &-menu {
+    color: #344358;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    top: 10px;
+    z-index: 10;
+    .menu-logo {
+      margin-right: 34px;
+      font-family: fantasy;
+      color: #344358;
+      letter-spacing: 2px;
+    }
+    &-item {
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  &-top {
+    flex: 1;
+    position: relative;
+    height: calc(100% - 70px);
+    &-icon {
+      position: absolute;
+      right: 0;
+      bottom: 60px;
+      width: 76px;
+      height: 40px;
+      text-align: center;
+      background-color: white;
+      line-height: 40px;
+      cursor: pointer;
+      i {
+        font-size: 20px;
+      }
+    }
+    &-img {
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      width: 400px;
+      height: 300px;
+      margin-top: -150px;
+    }
+    &-list {
+      margin-left: 160px;
+      margin-right: 420px;
+      margin-top: 70px;
+      height: calc(100% - 80px);
+      color: #344358;
+      overflow: hidden;
+      overflow: hidden;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+  }
+  &-bottom {
+    height: 80px;
+    display: flex;
+    &-add {
+      width: 160px;
+      background-color: transparent;
+      .flex();
+      cursor: pointer;
+      i {
+        font-size: 30px;
+        color: #344358;
+      }
+    }
+    &-info {
+      background-color: #96a0aa;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      color: white;
+      justify-content: flex-end;
+      font-weight: 600;
+      letter-spacing: 2px;
+      padding-right: 60px;
+      font-size: 14px;
+    }
+    &-extra {
+      background-color: white;
+      width: 400px;
+      font-size: 14px;
+      .flex();
+      justify-content: flex-start;
+      padding-left: 60px;
+      color: #344358;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  }
+}
