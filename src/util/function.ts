@@ -98,5 +98,5 @@ function replace(str: string): string {
     const reg = new RegExp(`${EMOJI_PREFIX}${code}${EMOJI_PREFIX}`, 'g');
     str = str.replace(reg, `<img src="${src}"/>`)
   })
-  return st
+  return str
 }
