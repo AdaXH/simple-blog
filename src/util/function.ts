@@ -96,7 +96,7 @@ export function replaceEmoji(value: string): string {
 function replace(str: string): string {
   emojiList.forEach(({ code, src }) => {
     const reg = new RegExp(`${EMOJI_PREFIX}${code}${EMOJI_PREFIX}`, 'g');
-    str = str.replace(reg, `<img src="${src}"/>`);
+    str = str.replace(reg, `<img src="${src}"/>`
   })
   return str;
 }
