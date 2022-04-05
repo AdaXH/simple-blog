@@ -17,8 +17,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "eslint --fix",
-      "git add -n"
+      "eslint --fix"
     ]
   },
   "dependencies": {
