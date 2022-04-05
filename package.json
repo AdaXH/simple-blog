@@ -12,7 +12,8 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-    "eslint --fix"
+    "eslint --fix",
+    "echo exit"
     ]
   },
   "dependencies": {
