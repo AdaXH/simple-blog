@@ -47,6 +47,10 @@ export const Home = () => {
             </div>
             <div className="home-info-design">DESIGN BY ADA</div>
           </div>
+          <a href="https://adaxh.site/old.html" target="_blank" className="home-info-old" rel="noreferrer">
+            OLD VERSION
+            <i className="iconfont icon-top"></i>
+          </a>
         </div>
       </div>
     </div>
