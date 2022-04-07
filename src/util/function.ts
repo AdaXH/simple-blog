@@ -100,3 +100,17 @@ function replace(str: string): string {
   });
   return str;
 }
+
+/**
+ * qq登陆窗口
+ */
+export function qqSign() {
+  try {
+    return window.QC.Login.showPopup({
+      appId: '101902433',
+      redirectURI: 'https://www.adaxh.site/qq',
+    });
+  } catch (error) {
+    // ingore
+  }
+}

@@ -1,22 +1,24 @@
-import { converter, parseTime, randonBool, replaceEmoji, useMount, useToggle } from '@/util';
+import { converter, parseTime, randonBool, replaceEmoji, useSetState, useToggle } from '@/util';
 import { createRef, memo, useEffect, useMemo, useState } from 'react';
+import { queryMsg } from '../../service';
 
 import './index.less';
 
 export const MsgList: React.FC<EmptyProp> = memo(
-  () => {
-    const [data, setData] = useState<MessageModel[]>([]);
-    const [page, setPage] = useState<number>(1);
+  ({ setTotal, newMsg }) => {
+    const [data, setData] = useState<MsgModel[]>([]);
+    const [pager, setPage] = useSetState<Page>({ page: 1, pageSize: 12 });
     const [isEnd, { setTrue, setFalse }] = useToggle();
     const queryData = async () => {
-      const d = await import('./mock.json');
-      if (d.success) {
-        await setData([...(data || []), ...d.data]);
-        data.length >= d.totalCount ? setTrue() : setFalse();
-        setPage(page + 1);
-      }
+      const { list, totalCount } = await queryMsg(pager);
+      setTotal(totalCount);
+      const newList = [...data, ...list];
+      setData(newList);
+      newList.length >= totalCount ? setTrue() : setFalse();
+      setPage({
+        page: pager.page + 1,
+      });
     };
-    useMount(queryData);
     const renderTime = useMemo(
       () => (time: string) => {
         const { year, month, day } = parseTime(time) as Record<string, any>;
@@ -30,7 +32,7 @@ export const MsgList: React.FC<EmptyProp> = memo(
         const ob = new IntersectionObserver((items) => {
           items.forEach((item) => {
             if (item.isIntersecting) {
-              console.log('update');
+              ob.unobserve(listenRef.current as HTMLDivElement);
               queryData();
             }
           });
@@ -38,7 +40,11 @@ export const MsgList: React.FC<EmptyProp> = memo(
         ob.observe(listenRef.current);
       }
     }, [listenRef]);
-    if (!data) return null;
+    useEffect(() => {
+      if (newMsg) {
+        setData([newMsg, ...data]);
+      }
+    }, [newMsg]);
     return (
       <>
         {data?.map((item, index) => (
@@ -66,5 +72,5 @@ export const MsgList: React.FC<EmptyProp> = memo(
       </>
     );
   },
-  () => true,
+  (pre, next) => pre.newMsg?._id === next.newMsg?._id,
 );

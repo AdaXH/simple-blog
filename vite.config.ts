@@ -9,7 +9,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
   plugins: [eslintPlugin, react()],
-  base: isDev ? '/' : 'https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/blog/simple-os/',
+  base: isDev ? '/' : 'https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/blog/simple-blog/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

@@ -31,7 +31,8 @@ export function request<T>(apiUrl: string, method: Method = 'GET', data?: Record
     })
       .then((res) => res.json())
       .then((data) => {
-        resolve(data);
+        if (!data.success) throw data.errorMsg || '网络异常';
+        resolve(data.data || data.user);
       })
       .catch((e) => reject(e));
   });

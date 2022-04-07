@@ -18,9 +18,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "typeRoots": ["./node_modules/@types/", "./src/typings"],
-    "types": ["vite-plugin-pwa/client"]
+    }
+    // "typeRoots": ["./node_modules/@types/", "./src/typings"],
+    // "types": ["vite-plugin-pwa/client"]
   },
   "include": ["./src"],
   "exclude": ["node_modules"]

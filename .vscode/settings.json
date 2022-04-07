@@ -43,7 +43,7 @@
   },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  // "editor.formatOnSave": true,
+  "editor.formatOnSave": true,
   "appworks.materialSources": [],
   "eslint.alwaysShowStatus": true,
   "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],

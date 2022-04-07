@@ -1,0 +1,63 @@
+@import url(../../../../common/styles/constant.module.less);
+.linkitem {
+  .flex();
+  flex-direction: column;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 3000px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 10px 10px rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+  letter-spacing: 2px;
+  &-avatar {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-color: #483858;
+    border-radius: 50%;
+    animation: avatar 0.3s forwards;
+  }
+  &-title {
+    margin-top: 30px;
+    transform: rotate3d(1, 1, 1, 45deg);
+    animation: title 0.3s forwards;
+  }
+  &-desc {
+    margin-top: 100px;
+    transform: rotate3d(1, 1, 1, -45deg);
+    animation: desc 0.3s forwards;
+  }
+}
+
+@keyframes avatar {
+  from {
+    opacity: 0.3;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes title {
+  from {
+    opacity: 0.3;
+    transform: rotate3d(1, 1, 1, 0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate3d(1, 1, 1, 45deg);
+  }
+}
+@keyframes desc {
+  from {
+    opacity: 0.3;
+    transform: rotate3d(1, 1, 1, 0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate3d(1, 1, 1, -45deg);
+  }
+}

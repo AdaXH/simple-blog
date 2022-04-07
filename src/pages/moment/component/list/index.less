@@ -3,9 +3,14 @@
   position: relative;
   color: #303030;
   height: calc(100% - 100px);
+  &[data-loading='true'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &-title {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
   }
   &-summary {
     margin-top: 30px;
@@ -13,6 +18,11 @@
   &-op {
     position: absolute;
     left: 50px;
+    bottom: 50px;
+  }
+  &-count {
+    position: absolute;
+    right: 50px;
     bottom: 50px;
   }
 }

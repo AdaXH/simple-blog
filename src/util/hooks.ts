@@ -69,10 +69,10 @@ interface Timer {
  * @returns Partial<E> & Timer, 返回定时器每次执行的结果，以及重启定时器的方法
  */
 export function useInterval<T = any>(fn: () => T, timer = 1000): Partial<T> & Timer {
-  const ref = useRef<number>();
+  const ref = useRef<NodeJS.Timer | number>();
   const [data, setData] = useState<Partial<T>>({});
 
-  const clearTimer = () => clearInterval(ref.current);
+  const clearTimer = () => clearInterval(ref.current as NodeJS.Timer);
   const resetTimer = async () => {
     clearTimer();
     await setDataFn();
@@ -131,4 +131,34 @@ export function useSetState<T extends Record<string, any>>(initState: T | (() =>
   }, []);
 
   return [state, mergeState];
+}
+
+/**
+ * loading hooks
+ * @param fn
+ * @returns
+ */
+export function useLoading<T extends CommonFn>(fn: T): [boolean, CommonFn] {
+  const [loading, setLoading] = useState<boolean>(false);
+  const argRef = useRef<any[]>([]);
+
+  async function runWork() {
+    try {
+      await fn(...argRef.current);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (loading) runWork();
+  }, [loading]);
+
+  return [
+    loading,
+    (...args: any[]) => {
+      argRef.current = args;
+      setLoading(true);
+    },
+  ];
 }

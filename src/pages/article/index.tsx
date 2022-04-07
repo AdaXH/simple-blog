@@ -1,13 +1,20 @@
+import { useMemo } from 'react';
 import { Img } from '@/component/image';
 import { Menu } from '@/component/menu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ArticleList } from './component/list';
 import { MENUS } from './constant';
 
 import './index.less';
+import { ArticleDetail } from './detail';
 
 export const Article = () => {
   const navigate = useNavigate();
+  const param = useParams();
+  const articleId = useMemo(() => param?.id, [param?.id]);
+  if (articleId) {
+    return <ArticleDetail articleId={articleId} />;
+  }
   return (
     <div className="article global">
       <div className="global-view article-wrap">
@@ -19,19 +26,7 @@ export const Article = () => {
           ))}
         </div>
         <div className="article-menu">
-          <Menu
-            logo="ARTICLE"
-            extrc={
-              <>
-                <div className="home-menu-item">
-                  <i className="iconfont icon-github"></i>
-                </div>
-                <div className="home-menu-item">
-                  <i className="iconfont icon-user1"></i>
-                </div>
-              </>
-            }
-          />
+          <Menu logo="ARTICLE" />
         </div>
         <div className="article-left">
           {/* <Img url="https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/simple-blog/bg/QQ%E6%88%AA%E5%9B%BE20220402214358.png" /> */}

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Time } from '../home/component/time';
 import { List } from './component/list';
 import { MENUS } from './constant';
-import './index.less';
 import { AboutTime } from './yourTime';
+import './index.less';
 
 export const Moment = () => {
   const navigate = useNavigate();
@@ -13,20 +13,7 @@ export const Moment = () => {
     <div className="moment global">
       <div className="global-view moment-wrap">
         <div className="moment-menu">
-          <Menu
-            logo="Moment"
-            extrc={
-              <>
-                <div className="moment-menu-item">
-                  <i className="iconfont icon-github"></i>
-                </div>
-                <div className="moment-menu-item">
-                  <i className="iconfont icon-user1"></i>
-                </div>
-              </>
-            }
-            menus={[]}
-          />
+          <Menu logo="Moment" />
         </div>
         <div className="moment-view1">
           <div className="moment-view1-top">

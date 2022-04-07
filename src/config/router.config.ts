@@ -16,7 +16,22 @@ export default [
   },
   {
     title: '',
+    path: '/article/:id',
+    Component: () => import('@/pages/article/app'),
+  },
+  {
+    title: '',
     path: '/message',
     Component: () => import('@/pages/message/app'),
+  },
+  {
+    title: '',
+    path: '/link',
+    Component: () => import('@/pages/link/app'),
+  },
+  {
+    title: '',
+    path: '/qq',
+    Component: () => import('@/pages/qq/app'),
   },
 ];
