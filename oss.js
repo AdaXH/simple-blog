@@ -16,10 +16,12 @@ async function putsList() {
     if (!files.length) return;
     for await (const item of files) {
       if (item === 'index.html') continue;
-      client.putStream(`/blog/simple-os/${item}`, fs.createReadStream(`./dist/${item}`)).then((res, err) => {
-        if (err) console.log('err', err);
-        console.log(`deploy file: ${item}`);
-      });
+      client
+        .putStream(`/simple-blog/assets/${item}`, fs.createReadStream(`./dist/${item}`))
+        .then((res, err) => {
+          if (err) console.log('err', err);
+          console.log(`deploy file: ${item}`);
+        });
     }
   } catch (error) {}
 }
