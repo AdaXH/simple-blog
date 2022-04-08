@@ -45,7 +45,7 @@ export function useToggle(initBool = false): ToggleReturn {
 export function useLoadComponent(importFn: FN<Promise<{ default: ReactNode }>>): ReactNode {
   const [Component, setComponent] = useState<ReactNode>(null);
   useMount(async () => {
-    const Load = await (await importFn()).default;
+    const Load = (await importFn()).default;
     setComponent(Load);
   });
   if (!Component) return null;
