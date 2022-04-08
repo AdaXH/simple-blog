@@ -1,8 +1,8 @@
+import { toast } from '@/component/toast';
 import Cookies from 'js-cookie';
-import { stringify } from '.';
+import { NO_ERRPR_APIS } from './constants';
 
 type Method = 'GET' | 'POST';
-const isOnline = !window.location.port;
 /**
  * request
  * @param apiUrl 请求的url
@@ -10,16 +10,14 @@ const isOnline = !window.location.port;
  * @param data 参数
  * @returns {T} 返回泛型
  */
-export function request<T>(apiUrl: string, method: Method = 'GET', data?: Record<string, any>): Promise<T> {
-  const url = isOnline ? apiUrl.replace('/api', '') : apiUrl;
+export function request<T>(api: string, method: Method = 'GET', data?: Record<string, any>): Promise<T> {
   return new Promise((resolve, reject) => {
     const isGet = method === 'GET';
-    const _url = isGet ? stringify(url, data) : url;
     const cfg: Record<string, any> = {};
     if (!isGet) {
       cfg.body = !isGet ? JSON.stringify(data) : '';
     }
-    fetch(_url, {
+    fetch(api, {
       method,
       headers: {
         'content-type': 'application/json',
@@ -34,6 +32,11 @@ export function request<T>(apiUrl: string, method: Method = 'GET', data?: Record
         if (!data.success) throw data.errorMsg || '网络异常';
         resolve(data.data || data.user);
       })
-      .catch((e) => reject(e));
+      .catch((e) => {
+        reject(e);
+        if (!NO_ERRPR_APIS.includes(api)) {
+          toast(e);
+        }
+      });
   });
 }
