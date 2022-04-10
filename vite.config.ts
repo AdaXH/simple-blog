@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslintPlugin from 'vite-plugin-eslint';
-// import legacyPlugin from '@vitejs/plugin-legacy';
+import legacyPlugin from '@vitejs/plugin-legacy';
 import path from 'path';
 
 // https://vitejs.dev/config/
@@ -15,6 +15,10 @@ export default defineConfig({
     // legacyPlugin({
     //   targets: ['chrome 52'], // 需要兼容的目标列表，可以设置多个
     // }),
+    legacyPlugin({
+      targets: ['> 1%, last 1 version, ie >= 11'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'], // 面向IE11时需要此插件
+    }),
   ],
   base: isDev ? '/' : 'https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/simple-blog/assets/',
   resolve: {
