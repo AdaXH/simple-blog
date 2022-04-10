@@ -108,7 +108,7 @@ export function qqSign() {
   try {
     return window.QC.Login.showPopup({
       appId: '101902433',
-      redirectURI: 'https://www.adaxh.site/qq',
+      redirectURI: 'https://adaxh.site/qq',
     });
   } catch (error) {
     // ingore

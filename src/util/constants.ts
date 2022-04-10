@@ -273,3 +273,5 @@ const mock = {
 };
 
 export const emojiList = mock.emojis;
+
+export const NO_ERRPR_APIS = ['/api/getUserInfoByToken'];

@@ -19,8 +19,9 @@ export const QQWrap = () => {
         }
       }
     } finally {
+      window.opener?.close();
+      // window.location.href = '/';
       navigate('/');
-      window.postMessage('finished');
     }
   });
   return <div className="qq-wrap">connecting</div>;
