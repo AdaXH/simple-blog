@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useMount } from '@/util';
 import { getOpenid } from './service';
 
 export const QQWrap = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   useMount(async () => {
     try {
       if (location.hash) {
@@ -18,7 +19,9 @@ export const QQWrap = () => {
         }
       }
     } finally {
-      window.location.href = '/';
+      window.opener?.close();
+      // window.location.href = '/';
+      navigate('/');
     }
   });
   return <div className="qq-wrap">connecting</div>;

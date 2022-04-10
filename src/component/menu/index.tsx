@@ -10,13 +10,7 @@ export const Menu: React.FC<MenuProps> = ({ logo, menus, onClickLogo }) => {
   const hasLogin = useMemo<boolean>(() => !!userCtx?._id, [userCtx?._id]);
   const qqLogin = () => {
     if (hasLogin) return;
-    const win = qqSign();
-    window.addEventListener('message', (ev) => {
-      console.log('close window');
-      if (ev.data === 'finished') {
-        win?.close();
-      }
-    });
+    qqSign();
   };
   return (
     <div className="menu">
