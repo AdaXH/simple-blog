@@ -3,6 +3,7 @@ interface Window {
   QC: {
     Login: {
       showPopup: (arg: any) => Window;
+      signOut: any;
     };
   };
 }

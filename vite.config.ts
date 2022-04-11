@@ -35,6 +35,8 @@ export default defineConfig({
       },
     },
     open: true,
+    port: 80,
+    // https: true,
   },
   css: {
     modules: {

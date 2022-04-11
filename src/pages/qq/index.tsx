@@ -15,11 +15,10 @@ export const QQWrap = () => {
           Cookies.remove('user');
           Cookies.remove('token');
           await getOpenid({ access_token });
-          window.opener?.close();
-          window.location.href = '/';
+          window.opener?.postMessage('success', '/');
         }
       }
-    } catch {
+    } finally {
       window.close();
     }
   });

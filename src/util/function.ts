@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { emojiList, EMOJI_PREFIX } from './constants';
 
 /**
@@ -106,11 +107,37 @@ function replace(str: string): string {
  */
 export function qqSign() {
   try {
-    return window.QC.Login.showPopup({
-      appId: '101902433',
-      redirectURI: 'https://adaxh.site/qq',
-    });
+    // return window.QC.Login.showPopup({
+    //   appId: '101902433',
+    //   redirectURI: 'http://adaxh.site/qq',
+    // });
+    return window.open(
+      // `https://graph.qq.com/oauth2.0/show?redirect_uri=${encodeURIComponent('http://adaxh.site/qq')}`,
+      'https://graph.qq.com/oauth2.0/show?which=Login&display=pc&client_id=101902433&response_type=token&scope=all&redirect_uri=https%3A%2F%2Fadaxh.site%2Fqq',
+      'QQ登录',
+      'width=550,height=420,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1',
+    );
   } catch (error) {
     // ingore
+  }
+}
+
+export function signOut(reload = true) {
+  [
+    '.adaxh.site',
+    'www.adaxh.site',
+    'adaxh.site',
+    'localhost',
+    'adaxh.applinzi.com',
+    'www.adaxh.applinzi.com',
+  ].forEach((domain) => {
+    Cookies.remove('user', {
+      domain,
+    });
+    Cookies.remove('token', { domain });
+  });
+  window.QC.Login.signOut();
+  if (reload) {
+    window.location.reload();
   }
 }
