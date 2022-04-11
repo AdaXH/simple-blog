@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { useMount } from '@/util';
-import { getOpenid } from './service';
+import { sleep, useMount } from '@/util';
+import { qqLogin } from './service';
 
 export const QQWrap = () => {
   const location = useLocation();
@@ -12,9 +12,9 @@ export const QQWrap = () => {
         // eslint-disable-next-line
         const [_, access_token] = param.split('=');
         if (access_token) {
-          Cookies.remove('user');
-          Cookies.remove('token');
-          await getOpenid({ access_token });
+          const token = await qqLogin({ access_token });
+          Cookies.set('token', token);
+          await sleep(1000);
           window.opener?.postMessage('success', '/');
         }
       }

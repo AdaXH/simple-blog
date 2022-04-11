@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { emojiList, EMOJI_PREFIX } from './constants';
+import { emojiList, EMOJI_PREFIX, VALID_DOMAIN } from './constants';
 
 /**
  * 小时，分钟，秒，带0格式化
@@ -123,21 +123,17 @@ export function qqSign() {
 }
 
 export function signOut(reload = true) {
-  [
-    '.adaxh.site',
-    'www.adaxh.site',
-    'adaxh.site',
-    'localhost',
-    'adaxh.applinzi.com',
-    'www.adaxh.applinzi.com',
-  ].forEach((domain) => {
-    Cookies.remove('user', {
-      domain,
-    });
+  VALID_DOMAIN.forEach((domain) => {
     Cookies.remove('token', { domain });
   });
   window.QC.Login.signOut();
   if (reload) {
     window.location.reload();
   }
+}
+
+export function sleep(timer = 500) {
+  return new Promise((reolve) => {
+    setTimeout(reolve, timer);
+  });
 }

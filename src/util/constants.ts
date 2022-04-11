@@ -275,3 +275,12 @@ const mock = {
 export const emojiList = mock.emojis;
 
 export const NO_ERRPR_APIS = ['/api/getUserInfoByToken'];
+
+export const VALID_DOMAIN = [
+  '.adaxh.site',
+  'www.adaxh.site',
+  'adaxh.site',
+  'localhost',
+  'adaxh.applinzi.com',
+  'www.adaxh.applinzi.com',
+];
