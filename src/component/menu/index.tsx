@@ -28,29 +28,21 @@ export const Menu: React.FC<MenuProps> = ({ logo, menus, onClickLogo }) => {
         </div>
       ))}
       <div className="menu-extra">
-        <a
-          className="menu-extra-menu-item"
-          data-hasLogin={hasLogin}
-          href="https://github.com/adaxh"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="menu-extra-menu-item" href="https://github.com/adaxh" target="_blank" rel="noreferrer">
           <i className="iconfont icon-github"></i>
         </a>
         <div className="menu-extra-menu-item">
-          {hasLogin ? (
-            <>
+          <i className="iconfont icon-user1" onClick={qqLogin}></i>
+          {hasLogin && (
+            <div className="menu-extra-menu-item-qq">
               <div
                 className="menu-extra-menu-item-qq-avatar"
                 style={{ backgroundImage: `url(${userCtx?.avatar})` }}
-              />
-              <div className="menu-extra-menu-item-qq-exit" onClick={() => signOut()}>
-                <i className="iconfont icon-exit"></i>
-                EXIT
+              ></div>
+              <div>
+                <i className="iconfont icon-exit" onClick={() => signOut()}></i>
               </div>
-            </>
-          ) : (
-            <i className="iconfont icon-user1" onClick={qqLogin}></i>
+            </div>
           )}
         </div>
       </div>
