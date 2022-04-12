@@ -137,3 +137,9 @@ export function sleep(timer = 500) {
     setTimeout(reolve, timer);
   });
 }
+
+export function setCookie(cookie: string) {
+  VALID_DOMAIN.forEach((domain) => {
+    Cookies.set('token', cookie, { domain });
+  });
+}
