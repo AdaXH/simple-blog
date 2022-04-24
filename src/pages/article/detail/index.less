@@ -2,17 +2,15 @@
 .article-detail {
   overflow-y: auto;
   width: 100%;
-  margin: 50px;
   margin-top: 80px;
   background-color: white;
-  line-height: 10px;
   &[data-loading='true'] {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   &-html {
-    animation: fadeIn 0.5s forwards;
+    // animation: fadeIn 0.5s forwards;
     blockquote {
       margin: 0 0 10px;
       padding: 15px 20px;
@@ -47,6 +45,11 @@
     margin-bottom: 10px;
   }
 }
-.article-wrap {
+.article-detail-wrap {
+  display: flex;
   background-color: white;
+  min-width: 1200px;
+  height: 90%;
+  max-width: unset;
+  max-height: unset;
 }

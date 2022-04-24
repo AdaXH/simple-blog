@@ -7,4 +7,5 @@ interface ArticleModel {
   type: string;
   viewer: string;
   summary: string;
+  bgColor?: string;
 }
