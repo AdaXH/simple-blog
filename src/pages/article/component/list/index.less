@@ -55,3 +55,23 @@
     }
   }
 }
+
+.article-type {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate3d(-50%, -50%, 0);
+  &-item {
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.6;
+    &[data-current='true'] {
+      cursor: not-allowed;
+      opacity: 1;
+    }
+  }
+}
