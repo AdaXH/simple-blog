@@ -27,8 +27,8 @@ export const Home = () => {
             className="home-bg-info"
             rel="noreferrer"
           >
-            {/* 浙公网安备33010602010125号 滇ICP备2020009525号 */}
-            ICP.33010602010125 2020009525
+            浙公网安备33010602010125号 滇ICP备2020009525号-1
+            {/* ICP.33010602010125 2020009525 */}
           </a>
         </div>
         <div className="home-info">
