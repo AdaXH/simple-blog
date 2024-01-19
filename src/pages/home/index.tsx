@@ -21,15 +21,18 @@ export const Home = () => {
         </div>
         <div className="home-bg">
           <Img url="https://bucker-for-sae.oss-cn-hangzhou.aliyuncs.com/simple-blog/bg/eccb6f291f48402484a8f171e0197a6c.jpeg" />
-          <a
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602010125"
-            target="_blank"
-            className="home-bg-info"
-            rel="noreferrer"
-          >
-            浙公网安备33010602010125号 滇ICP备2020009525号-1
-            {/* ICP.33010602010125 2020009525 */}
-          </a>
+          <div className="home-bg-info">
+            <a
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602010125"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {`浙公网安备33010602010125号 `}
+            </a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
+              滇ICP备2020009525号-1
+            </a>
+          </div>
         </div>
         <div className="home-info">
           <div className="home-info-main">
